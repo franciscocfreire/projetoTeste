@@ -1,7 +1,16 @@
 package br.com.fcf.projetoTesteBackEnd.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Category {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
@@ -26,6 +35,7 @@ public class Category {
 		this.description = description;
 	}
 
+	@Column(name = "image_url")
 	public String getImageURL() {
 		return imageURL;
 	}
@@ -34,12 +44,20 @@ public class Category {
 		this.imageURL = imageURL;
 	}
 
+	@Column(name = "is_active")
 	public boolean isActive() {
 		return active;
 	}
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description="
+				+ description + ", imageURL=" + imageURL + ", active=" + active
+				+ "]";
 	}
 
 	/*
